@@ -1,0 +1,23 @@
+{
+    "name": "jmy/feiyun",
+    "authors": [
+        {
+            "name": "zhaozhijun1988",
+            "email": "zhaozhijun1988@gmail.com"
+        }
+    ],
+    "description": "feiyun sdk",
+    "license": "MIT",
+    "require": {
+        "php": "^7.2",
+        "ext-json": "*",
+        "ext-iconv": "*",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jmy\\FeiYun\\": "src/"
+        }
+    }
+}
