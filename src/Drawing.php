@@ -27,9 +27,11 @@ class Drawing
     {
         if ($align == 'right') {
             $this->content[] = " <RIGHT>{$text}</RIGHT>";
+            return;
         }
         if ($align == 'center') {
             $this->content[] = " <C>{$text}</C>";
+            return;
         }
         $this->content[] = $text;
     }
