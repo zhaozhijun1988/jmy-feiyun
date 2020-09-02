@@ -81,7 +81,7 @@ class Table
         return $this;
     }
 
-    public function getOutput()
+    public function getOutput(bool $l = true)
     {
         if (array_sum($this->getStyle()) > self::MAX_WIDTH) {
             throw new \LogicException('max width 32 bytes');
@@ -98,7 +98,9 @@ class Table
             }
             $output[] = $this->formatTr($tr);
         }
-        return implode("<BR>", $output);
+        return implode("<BR>", $l ? array_map(function ($item) {
+            return '<L>'.$item.'</L>';
+        }, $output) : $output);
     }
 
     public function formatTr(array $tds)
@@ -140,7 +142,7 @@ class Table
         for ($i = 1; $i <= mb_strlen($text); $i++) {
             $str = mb_substr($text, $j, $i - $j);
             if (strlen(iconv("UTF-8", "GBK//IGNORE", $str)) > $len) {
-                $result[] = mb_substr($text, $j, $i - $j -1);;
+                $result[] = mb_substr($text, $j, $i - $j -1);
                 $j = $i - 1;
             } elseif (strlen(iconv("UTF-8", "GBK//IGNORE", $str)) == $len) {
                 $result[] = $str;
